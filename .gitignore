@@ -3,4 +3,4 @@ dist
 .tmp
 .sass-cache
 public/bower_components
-config.js
+config_dev.js
