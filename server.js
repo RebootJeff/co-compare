@@ -5,7 +5,6 @@ var express = require('express'),
   passport = require('passport'),
   FacebookStrategy = require('passport-facebook').Strategy,
   config = require('./config'),
-  // TODO: clean up route importing ------------------ !
   homeRoute = require('./routes/index'),
   retrieveRoute = require('./routes/retrieve'),
   submitRoute = require('./routes/submit'),
@@ -96,10 +95,6 @@ app.post('/api/vote', checkAuth, voteRoute.submit);
 app.use(function (req, res) {
   res.json({'ok': false, 'status': '404'});
 });
-
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// Serve static files
-
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // And now we wait...
