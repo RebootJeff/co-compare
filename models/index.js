@@ -1,3 +1,5 @@
+'use strict';
+
 // DATABASE
 var Sequelize = require('sequelize');
 var config = require('../config');
