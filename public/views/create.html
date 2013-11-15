@@ -1,0 +1,76 @@
+<!-- NOTE: buttons are given attribute `type="button"` to prevent form submission upon click -->
+
+<article class="comparison-wrapper">
+  <form name="createForm">
+    <header class="comparison-title">
+      <input type="text"
+        class="title-input"
+        ng-model="comparisonName"
+        ng-maxlength="100"
+        placeholder="Enter title"
+        required/>
+      <!-- The below divs should be buttons, but will run into form validation issues -->
+      <a href="/api/auth/facebook"><div ng-show="!loggedIn" class="right auth-button">Log In</div></a>
+      <a href="/api/logout"><div ng-show="loggedIn" class="right auth-button">Log Out</div></a>
+    </header>
+
+    <section class="spreadsheet-wrapper container">
+      <table class="spreadsheet">
+        <tbody>
+          <tr><!-- TODO: Fix this row!
+            I'm not using `thead` nor `tfoot` due to weird Foundation.css -->
+            <td></td><!-- purposefully empty cell -->
+            <td class="header-row" ng-repeat="subject in subjects">
+              <input type="text"
+                class="subject-input"
+                ng-model="subject.name"
+                ng-maxlength="30"
+                placeholder="Enter subject"
+                required/>
+              <button class="remove-button" type="button" ng-click="removeSubject(subject)">
+                X
+              </button>
+            </td>
+            <td>
+              <button class="add-button" type="button" ng-click="addSubject()">Add Subject</button>
+            </td>
+          </tr>
+          <tr ng-repeat="criterion in criteria">
+            <td class="criteria-col">
+              <input type="text"
+                class="criterion-input"
+                ng-model="criterion.name"
+                ng-maxlength="20"
+                placeholder="Enter criterion"
+                required/>
+              <button class="remove-button" type="button" ng-click="removeCriterion(criterion)">
+                X
+              </button>
+            </td>
+            <td ng-repeat="subject in subjects">
+              <input type="text"
+                class="score-description-input"
+                ng-model="scores['s'+subject.index+'c'+criterion.index].description"
+                ng-maxlength="20"
+                placeholder="Enter optional text"/>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button class="add-button" type="button" ng-click="addCriterion()">Add Criterion</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="form-section">
+      <button class="submit-button" type="button" ng-click="submit()" ng-show="!submitted">Submit</button>
+      <aside class="share-section" ng-show="submitted">
+        View/share your comparison with this link:
+        <a href="{{ shareLink }}">{{ shareLink }}</a>
+      </aside>
+    </section>
+  </form>
+
+</article>

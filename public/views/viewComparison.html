@@ -1,0 +1,83 @@
+<article class="comparison-wrapper">
+  <header class="comparison-title">
+    {{ comparisonTitle }}
+    <a href="/api/auth/facebook"><button ng-show="!loggedIn" class="right auth-button">Log In</button></a>
+    <a href="/api/logout"><button ng-show="loggedIn" class="right auth-button">Log Out</button></a>
+  </header>
+
+  <form class="controls container">
+    <section class="weight-toggle-controls">
+      <input type="checkbox" ng-model="isWeighted" ng-click="computeTotalScores()">Use criteria weights
+    </section>
+    <section class="sorting-controls">
+      <label>Sort criteria by</label>
+      <div class="radio-button-subgroup">
+        <input type="radio" ng-model="critPredicate" value="name"/>name
+        <br/>
+        <input type="radio" ng-model="critPredicate" value="points"/>points
+      </div>
+      <div class="radio-button-subgroup">
+        <input type="radio" ng-model="critReverse" value="false"/>ascending
+        <br/>
+        <input type="radio" ng-model="critReverse" value="true"/>descending
+      </div>
+    </section>
+    <section class="sorting-controls">
+      <label>Sort subjects by</label>
+      <div class="radio-button-subgroup">
+        <input type="radio" ng-model="subjPredicate" value="name"/>name<br/>
+        <input type="radio" ng-model="subjPredicate" value="totalScore"/>total score
+      </div>
+      <div class="radio-button-subgroup">
+        <input type="radio" ng-model="subjReverse" value="false"/>ascending<br/>
+        <input type="radio" ng-model="subjReverse" value="true"/>descending
+      </div>
+    </section>
+  </form>
+
+  <section class="spreadsheet-wrapper">
+    <table class="spreadsheet">
+      <tbody>
+        <tr><!-- TODO: Fix this row!
+          I'm not using `thead` nor `tfoot` due to weird Foundation.css -->
+          <td class="refresh-cell">
+            <div class="icon-refresh" ng-click="refresh()"></div>
+          </td>
+          <td class="header-row" ng-repeat="subject in subjects | orderBy:subjPredicate:subjReverse">
+            {{ subject.name }}
+          </td>
+        </tr>
+        <tr ng-repeat="criterion in criteria | orderBy:critPredicate:critReverse">
+          <td class="criteria-col">
+            <div class="criterion left">
+              {{ criterion.name }}
+              <p class="points">{{ criterion.points }}</p>
+              <!-- Probably don't need the line below any more -->
+              <!-- <p class="points">{{ scores['c' + criterion.index].points }}</p> -->
+            </div>
+            <div class="vote-button-wrapper right">
+              <span class="icon-thumbs-up" ng-click="submitVote(1, criterion)"></span>
+              <span class="icon-thumbs-down" ng-click="submitVote(-1, criterion)"></span>
+            </div>
+          </td>
+          <td class="score-wrapper" ng-repeat="subject in subjects | orderBy:subjPredicate:subjReverse">
+            <div class="score left">
+              <span class="score-description">{{ scores['s' + subject.index + 'c' + criterion.index].description }}</span>
+              <p class="points">
+                {{ scores['s' + subject.index + 'c' + criterion.index].points }}
+              </p>
+            </div>
+            <div class="vote-button-wrapper right">
+              <span class="icon-thumbs-up" ng-click="submitVote(1, criterion, subject)"></span>
+              <span class="icon-thumbs-down" ng-click="submitVote(-1, criterion, subject)"></span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="criteria-col">Total Score</td>
+          <td class="total-scores" ng-repeat="subject in subjects | orderBy:subjPredicate:subjReverse">{{ subject.totalScore }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</article>

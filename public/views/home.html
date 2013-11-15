@@ -1,0 +1,25 @@
+<article class="home-wrapper">
+  <section class="greeting-wrapper">
+    <h1 class="big-greeting">Welcome to <strong>Co-Compare</strong></h1>
+    <p class="sub-greeting">{{ oneLiner }}</p>
+  </section>
+
+  <section class="get-started">
+    <a href="/api/auth/facebook"><button ng-show="!loggedIn" class="big-login-button">Log in via Facebook</button></a>
+    <a href="/api/logout"><button ng-show="loggedIn" class="big-logout-button">Log Out</button></a>
+    <p>or browse the latest comparisons below:</p>
+  </section>
+
+  <section class="browse-list-wrapper">
+    <form class="controls">
+      <!-- TODO: insert input controls for sorting -->
+    </form>
+    <table class="browse-list">
+      <tr class="comparison-row" ng-repeat="comparison in comparisons | orderBy:'createdAt':true">
+        <td class="title-col"><a href="{{ comparison.link }}">{{ comparison.title }}</a></td>
+        <td class="date-col">{{ comparison.prettyDate }}</td>
+        <!-- NOT WORKING YET: <td class="votes-col">{{ comparison.voteCount }} votes</td> -->
+      </tr>
+    </table>
+  </section>
+</article>

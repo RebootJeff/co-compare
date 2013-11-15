@@ -1,0 +1,69 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Co-Compare</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+        <!-- <link rel="stylesheet" href="styles/foundation.css"> -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+</head>
+  <body ng-app="CoCompareApp">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+      <script src="bower_components/es5-shim/es5-shim.js"></script>
+      <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <nav>
+      <ul class="left">
+        <li><img class="tiny-logo" src="images/tiny-logo.png"/></li>
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/create">Create</a></li>
+      </ul>
+      <!-- TODO: (dynamically) add log in/out link to navbar -->
+      <!-- <ul class="right">
+        <li ng-show="loggedIn"><a href="/api/auth/facebook">Log In</a></li>
+        <li ng-show="!loggedIn"><a href="/api/logout">Log Out</a></li>
+      </ul> -->
+    </nav>
+
+    <div class="container" ng-view=""></div>
+
+    <!-- Hack Reactor shoutout -->
+    <footer class="master-footer">
+      <div class="hr-shoutout right">Created by <a href="http://rebootjeff.github.io">@RebootJeff</a> at <a href="http://www.hackreactor.com">Hack Reactor</a></div>
+    </footer>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <!-- <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script> -->
+
+    <script src="bower_components/angular/angular.js"></script>
+    <!-- <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script> -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/home.js"></script>
+    <script src="scripts/controllers/create.js"></script>
+    <script src="scripts/controllers/viewComparison.js"></script>
+</body>
+</html>
