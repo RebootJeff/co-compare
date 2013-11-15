@@ -2,7 +2,7 @@
 
 module.exports = {
   host: process.env.HOSTNAME,
-  port: process.env.PORT
+  port: process.env.PORT,
   db: {
     name: process.env.DB_NAME,
     host: process.env.DB_HOSTNAME,
