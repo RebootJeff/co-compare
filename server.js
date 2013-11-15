@@ -4,15 +4,21 @@
 var express = require('express'),
   passport = require('passport'),
   FacebookStrategy = require('passport-facebook').Strategy,
-  config = require('./config'),
   homeRoute = require('./routes/index'),
   retrieveRoute = require('./routes/retrieve'),
   submitRoute = require('./routes/submit'),
   voteRoute = require('./routes/vote'),
+  config,
   app = express();
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// Apply middleware
+// Configuration
+if(process.env.NODE_ENV === 'production'){
+  config = require('./config_production');
+} else {
+  config = require('./config_dev');
+}
+
 app.use(express.static(__dirname + '/public'));
 app.use(express.json());
 app.use(express.urlencoded());
