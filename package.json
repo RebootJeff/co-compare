@@ -8,10 +8,14 @@
     "mysql": "~2.0.0-alpha9",
     "passport": "~0.1.17",
     "passport-facebook": "~1.0.1",
-    "moment": "~2.4.0"
+    "moment": "~2.4.0",
+    "bower": "~1.2.7"
   },
   "engines": {
     "node": ">=0.8.0",
     "npm": ">=1.3.11"
+  },
+  "scripts": {
+    "postinstall": "./node_modules/bower/bin/bower install"
   }
 }
