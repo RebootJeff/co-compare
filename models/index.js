@@ -1,8 +1,15 @@
 'use strict';
 
+// TODO: make this DRYer
+var config;
+if(process.env.NODE_ENV === 'production'){
+  config = require('../config_production');
+} else {
+  config = require('../config_dev');
+}
+
 // DATABASE
 var Sequelize = require('sequelize');
-var config = require('../config');
 var sequelize = new Sequelize(config.db.name, config.db.username,
   config.db.password, { host: config.db.host, port: config.db.port });
 
