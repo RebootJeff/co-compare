@@ -1,1 +1,1 @@
-web: node self-generated/server.js
+web: node server.js
