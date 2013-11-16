@@ -11,13 +11,7 @@ if(process.env.NODE_ENV === 'production'){
 // DATABASE
 var Sequelize = require('sequelize');
 var sequelize = new Sequelize(config.db.name, config.db.username,
-  config.db.password, {
-    host: config.db.host,
-    port: config.db.port,
-    dialect: config.db.dialect,
-    protocol: config.db.protocol,
-    logging: config.db.logging
-  });
+  config.db.password, config.db.options);
 
 // DATABASE TABLES (Models)
 var Comparison = sequelize.define('Comparison', {
