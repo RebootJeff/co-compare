@@ -71,7 +71,6 @@ angular.module('CoCompareApp')
     };
 
     var computeTotalScores = $scope.computeTotalScores = function(){
-      // TODO: add logic for computing WEIGHTED total scores
       var criteriaTotal = 0;
       for(var i = 0; i < criteria.length; i++){
         var subScore = criteria[i].points;
@@ -99,7 +98,6 @@ angular.module('CoCompareApp')
     };
 
     $scope.submitVote = function(value, crit, subj){
-      // TODO: add userId to postData
       if($scope.loggedIn){
         var postData = {
           comparisonId: comparison.comparisonId,

@@ -1,6 +1,5 @@
 'use strict';
 
-// TODO: make this DRYer
 var config;
 if(process.env.NODE_ENV === 'production'){
   config = require('../config_production');

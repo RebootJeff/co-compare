@@ -11,7 +11,7 @@ var express = require('express'),
   config,
   app = express();
 
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// __________________________________________________________________
 // Configuration
 if(process.env.NODE_ENV === 'production'){
   config = require('./config_production');
@@ -29,12 +29,12 @@ app.use(express.logger('dev'));
 app.use(passport.initialize());
 app.use(passport.session());
 
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// __________________________________________________________________
 // Set and start using models
 app.set('models', require('./models'));
 var models = app.get('models');
 
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// __________________________________________________________________
 // Facebook authentication strategy
 
 passport.use(new FacebookStrategy({
@@ -62,7 +62,7 @@ passport.deserializeUser(function(user, done) {
   done(null, user);
 });
 
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// __________________________________________________________________
 // Routing for authentication
 var checkAuth = function(req, res, next){
   if(req.isAuthenticated()){
@@ -92,7 +92,7 @@ app.get('/api/auth/facebook/callback', passport.authenticate('facebook', {
   failureRedirect: '/'
 }));
 
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// __________________________________________________________________
 // Routing API calls
 // TODO: Make this more CRUDy? (e.g., change `retrieve` to `read`)
 app.get('/api/home', homeRoute.browse);
@@ -104,7 +104,7 @@ app.use(function (req, res) {
   res.json({'ok': false, 'status': '404'});
 });
 
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// __________________________________________________________________
 // And now we wait...
 app.listen(config.port);
 console.log('Listening on port ' + config.port);
