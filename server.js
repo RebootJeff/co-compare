@@ -15,8 +15,10 @@ var express = require('express'),
 // Configuration
 if(process.env.NODE_ENV === 'production'){
   config = require('./config_production');
+  console.log(config);
 } else {
   config = require('./config_dev');
+  console.log(config);
 }
 
 app.use(express.static(__dirname + '/public'));
@@ -36,6 +38,9 @@ var models = app.get('models');
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Facebook authentication strategy
+
+console.log('http://' + config.host + ':' + config.port + '/api/auth/facebook/callback');
+
 passport.use(new FacebookStrategy({
   clientID: config.fb.APP_KEY,
   clientSecret: config.fb.SECRET,
@@ -84,11 +89,10 @@ app.get('/api/logout', function(req, res){
   res.redirect('/');
 });
 
-var whoa = function(){ console.log('\n ~~~ whoa ~~~ \n'); };
 // Passport will perform FB login when client makes the following GET request
 app.get('/api/auth/facebook', passport.authenticate('facebook'));
 // Facebook will make the following GET request after user logs in
-app.get('/api/auth/facebook/callback', whoa, passport.authenticate('facebook', {
+app.get('/api/auth/facebook/callback', passport.authenticate('facebook', {
   // TODO: Redirect user to whatever URL they were at before logging in
   successRedirect: '/',
   failureRedirect: '/'
