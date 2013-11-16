@@ -13,6 +13,7 @@ module.exports = {
   },
   fb: {
     APP_KEY: process.env.FB_APP_KEY,
-    SECRET: process.env.FB_SECRET
+    SECRET: process.env.FB_SECRET,
+    callbackURL: process.env.FB_CALLBACKURL
   }
 };

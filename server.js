@@ -37,13 +37,13 @@ var models = app.get('models');
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Facebook authentication strategy
 
-console.log('\ncallbackURL:','http://' + config.host + ':' + config.port + '/api/auth/facebook/callback');
+console.log('\ncallbackURL:',config.fb.callbackURL);
 console.log('\nkey:',config.fb.APP_KEY,'secret:',config.fb.SECRET);
 
 passport.use(new FacebookStrategy({
   clientID: config.fb.APP_KEY,
   clientSecret: config.fb.SECRET,
-  callbackURL: 'http://' + config.host + ':' + config.port + '/api/auth/facebook/callback'
+  callbackURL: config.fb.callbackURL
 },
   function(accessToken, refreshToken, profile, done) {
       console.log('about to query database hereeeeee -------------------- !');
