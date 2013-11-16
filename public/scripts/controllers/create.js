@@ -4,11 +4,11 @@ angular.module('CoCompareApp')
   .controller('CreateCtrl', function ($rootScope, $scope, $http) {
     $scope.loggedIn = !!$rootScope.user && !!$rootScope.user.name;
 
-    // These indexes are used to assign scores to their respective subject & criterion
+    // These indices are used to assign scores to their respective subjects & criteria
     var critIndex = 0;
     var subjIndex = 0;
 
-    // These declarations work with live data binding because
+    // These declarations work with live data-binding because
     // they deal with arrays/objects, which are mutable.
     var subjects = $scope.subjects = [{
       name: '',
