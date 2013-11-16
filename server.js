@@ -15,10 +15,8 @@ var express = require('express'),
 // Configuration
 if(process.env.NODE_ENV === 'production'){
   config = require('./config_production');
-  console.log(config);
 } else {
   config = require('./config_dev');
-  console.log(config);
 }
 
 app.use(express.static(__dirname + '/public'));
@@ -38,8 +36,6 @@ var models = app.get('models');
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Facebook authentication strategy
-
-console.log('http://' + config.host + ':' + config.port + '/api/auth/facebook/callback');
 
 passport.use(new FacebookStrategy({
   clientID: config.fb.APP_KEY,
