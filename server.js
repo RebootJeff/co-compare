@@ -37,6 +37,9 @@ var models = app.get('models');
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Facebook authentication strategy
 
+console.log('\ncallbackURL:','http://' + config.host + ':' + config.port + '/api/auth/facebook/callback');
+console.log('\nkey:',config.fb.APP_KEY,'secret:',config.fb.SECRET);
+
 passport.use(new FacebookStrategy({
   clientID: config.fb.APP_KEY,
   clientSecret: config.fb.SECRET,
