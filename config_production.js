@@ -8,7 +8,9 @@ module.exports = {
     host: process.env.DB_HOSTNAME,
     port: process.env.DB_PORT,
     username: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD
+    password: process.env.DB_PASSWORD,
+    dialect: 'process.env.DB_DIALECT',
+    protocol: 'process.env.DB_PROTOCOL'
   },
   fb: {
     APP_KEY: process.env.FB_APP_KEY,
