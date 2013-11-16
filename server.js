@@ -37,23 +37,18 @@ var models = app.get('models');
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Facebook authentication strategy
 
-console.log('\ncallbackURL:',config.fb.callbackURL);
-console.log('\nkey:',config.fb.APP_KEY,'secret:',config.fb.SECRET);
-
 passport.use(new FacebookStrategy({
   clientID: config.fb.APP_KEY,
   clientSecret: config.fb.SECRET,
   callbackURL: config.fb.callbackURL
 },
   function(accessToken, refreshToken, profile, done) {
-      console.log('about to query database hereeeeee -------------------- !');
     models.User.findOrCreate({fbId: profile.id, name: profile.displayName})
     .success(function(user){
-      console.log('done hereeeeee -------------------- !');
       done(null, user);
     })
     .error(function(err){
-      console.log('Could not find/create user.', err);
+      console.log('Could not find/create user:', err);
     });
   })
 );
