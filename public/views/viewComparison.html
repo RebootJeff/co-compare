@@ -38,8 +38,7 @@
   <section class="spreadsheet-wrapper">
     <table class="spreadsheet">
       <tbody>
-        <tr><!-- TODO: Fix this row!
-          I'm not using `thead` nor `tfoot` due to weird Foundation.css -->
+        <tr>
           <td class="refresh-cell">
             <div class="icon-refresh" ng-click="refresh()"></div>
           </td>
@@ -52,8 +51,6 @@
             <div class="criterion left">
               {{ criterion.name }}
               <p class="points">{{ criterion.points }}</p>
-              <!-- Probably don't need the line below any more -->
-              <!-- <p class="points">{{ scores['c' + criterion.index].points }}</p> -->
             </div>
             <div class="vote-button-wrapper right">
               <span class="icon-thumbs-up" ng-click="submitVote(1, criterion)"></span>

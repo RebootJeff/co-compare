@@ -9,16 +9,18 @@
         ng-maxlength="100"
         placeholder="Enter title"
         required/>
-      <!-- The below divs should be buttons, but will run into form validation issues -->
-      <a href="/api/auth/facebook"><div ng-show="!loggedIn" class="right auth-button">Log In</div></a>
-      <a href="/api/logout"><div ng-show="loggedIn" class="right auth-button">Log Out</div></a>
+      <a href="/api/auth/facebook">
+        <button type="button" ng-show="!loggedIn" class="right auth-button">Log In</button>
+      </a>
+      <a href="/api/logout">
+        <button type="button" ng-show="loggedIn" class="right auth-button">Log Out</button>
+      </a>
     </header>
 
     <section class="spreadsheet-wrapper container">
       <table class="spreadsheet">
         <tbody>
-          <tr><!-- TODO: Fix this row!
-            I'm not using `thead` nor `tfoot` due to weird Foundation.css -->
+          <tr>
             <td></td><!-- purposefully empty cell -->
             <td class="header-row" ng-repeat="subject in subjects">
               <input type="text"
