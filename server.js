@@ -39,7 +39,7 @@ var models = app.get('models');
 passport.use(new FacebookStrategy({
   clientID: config.fb.APP_KEY,
   clientSecret: config.fb.SECRET,
-  callbackURL: config.host + ':' + config.port + '/api/auth/facebook/callback'
+  callbackURL: 'http://' + config.host + ':' + config.port + '/api/auth/facebook/callback'
 },
   function(accessToken, refreshToken, profile, done) {
     models.User.findOrCreate({fbId: profile.id, name: profile.displayName})
