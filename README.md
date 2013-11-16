@@ -27,7 +27,7 @@ Check out the deployed goodness: [LINK TO DEPLOYED VERSION GOES HERE YEAH I'M YE
 
 #### Home Page
 
-![landing page](ss-home-view.png)
+![landing page](dev/ss-home-view.png)
 
 #### Example comparison #1
 
@@ -39,7 +39,7 @@ Check out the deployed goodness: [LINK TO DEPLOYED VERSION GOES HERE YEAH I'M YE
 
 #### Example comparison creation
 
-![creating a comparison](ss-create-view.png)
+![creating a comparison](dev/ss-create-view.png)
 
 ## Development
 
