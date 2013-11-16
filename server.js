@@ -44,6 +44,7 @@ passport.use(new FacebookStrategy({
   function(accessToken, refreshToken, profile, done) {
     models.User.findOrCreate({fbId: profile.id, name: profile.displayName})
     .success(function(user){
+      console.log('done hereeeeee -------------------- !');
       done(null, user);
     })
     .error(function(err){
