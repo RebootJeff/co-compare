@@ -9,7 +9,7 @@ module.exports = {
     password: process.env.DB_PASSWORD,
     dialect: process.env.DB_DIALECT,
     protocol: process.env.DB_PROTOCOL,
-    logging: true
+    logging: console.log
   },
   fb: {
     APP_KEY: process.env.FB_APP_KEY,
