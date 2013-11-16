@@ -15,7 +15,8 @@ var sequelize = new Sequelize(config.db.name, config.db.username,
     host: config.db.host,
     port: config.db.port,
     dialect: config.db.dialect,
-    protocol: config.db.protocol
+    protocol: config.db.protocol,
+    logging: config.db.logging
   });
 
 // DATABASE TABLES (Models)
