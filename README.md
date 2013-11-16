@@ -11,7 +11,7 @@ Check out the deployed goodness: [LINK TO DEPLOYED VERSION GOES HERE YEAH I'M YE
   - [Tech Stack](#tech-stack)
   - [Tools](#tools)
   - [Challenges](#challenges)
-  - [The Code](#the-code)
+  - [The Repo](#the-repo)
   - [The Creator](#the-creator)
 
 ## Usage
@@ -43,7 +43,7 @@ Check out the deployed goodness: [LINK TO DEPLOYED VERSION GOES HERE YEAH I'M YE
 
 ## Development
 
-Creating this app helped me learn valuable lessons about full-stack architecture, CRUD, workflow tools, UX/UI, version control, Linux, documentation, and deployment. I expected some of these topics to be easy, but the learning process was far from hiccup-free. Never give up!
+Creating this app helped me learn valuable lessons about full-stack architecture, CRUD, workflow tools, UX/UI, dev life cycle, version control, Linux, documentation, and **deployment**. I expected some of these topics to be easy, but the learning process was far from hiccup-free. Never give up!
 
 ### Tech Stack
 - **AngularJS**: client-side framework
@@ -51,10 +51,10 @@ Creating this app helped me learn valuable lessons about full-stack architecture
   - **Express**: server-side framework
   - **Passport**: server-side authentication (via Facebook)
   - **Sequelize**: ORM
-- **MySQL**: database
+- **SQL**: database
 - **Moment.js**: time/date prettifier
 
-(Why do some JS libraries/frameworks end with ".js" while others end with "JS" while other end with no suffix at all?)
+(Why do some JS libraries/frameworks end with ".js" while others end with "JS" while others end with no suffix at all?)
 
 ### Tools
 - **git** (duh): version control tool
@@ -63,8 +63,8 @@ Creating this app helped me learn valuable lessons about full-stack architecture
 - **Yeoman**: scaffolding/boilerplate provider
 - **Grunt**: workflow-related task automation
 - **Stylus**: CSS pre-processor
-- **AWS**: web app hosting provider
-- **Ubuntu**: UNIX for those of us who can't afford MacOS
+- **Heroku**: web app hosting provider
+- **Ubuntu**: UNIX for those of us who're too cheap for MacOS
 - **Sublime Text 2**: linter and omnipotent syntax highlighting
 
 ### Challenges
@@ -73,17 +73,19 @@ Creating this app helped me learn valuable lessons about full-stack architecture
 - Relational databases are tricky --especially when querying them in an asynchronous environment.
 - Authentication can be quirky, and introducing authentication to an app requires the addition of code into all parts of the app. With each addition comes its own set of questions (e.g., Should the view be affected? What access should be limited?).
 
-### The Code
+### The Repo
 
-- **public**: front-end code
-  - **views**: HTML used by Angular
-  - **scripts**: client app + Angular controller modules
+- **dev**: media files related to design
+- **models**: database setup
+- **public**: front-end
+  - **images**: icons
+  - **scripts**: client app + Angular controllers
   - **styles**: Stylus code and resultant CSS
-  - (images: just some icons)
-  - (bower_components: not in GitHub repo)
-- **server**: back-end code
-  - **models**: database setup using Sequelize
-  - **routes**: controllers that interact with the database
+  - **views**: HTML inserted into `index.html` by Angular
+- **routes**: controllers that interact with the database
+- `config_production.js`: references production environment variables
+- `config_dev.js`: (not provided) private, local counterpart to config_production.js
+- `server.js`: starts the server
 
 ### The Creator
 
