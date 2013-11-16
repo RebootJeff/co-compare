@@ -42,6 +42,7 @@ passport.use(new FacebookStrategy({
   callbackURL: 'http://' + config.host + ':' + config.port + '/api/auth/facebook/callback'
 },
   function(accessToken, refreshToken, profile, done) {
+      console.log('about to query database hereeeeee -------------------- !');
     models.User.findOrCreate({fbId: profile.id, name: profile.displayName})
     .success(function(user){
       console.log('done hereeeeee -------------------- !');
