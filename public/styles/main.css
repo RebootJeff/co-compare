@@ -11,9 +11,7 @@ a {
   color: #4a4a6c;
   text-decoration: none;
 }
-a:hover,
-button:hover,
-div.auth-button:hover {
+a:hover {
   color: #8d9db4;
 }
 .left {
@@ -56,14 +54,7 @@ img.tiny-logo {
 .container {
   clear: both;
 }
-.auth-button {
-  width: 100px;
-  height: 40px;
-  font-size: 0.6em;
-  border-radius: 3px;
-}
-button,
-div.auth-button {
+button {
   color: #fff;
   background-color: #4a4a6c;
   border-radius: 2px;
@@ -71,17 +62,16 @@ div.auth-button {
   cursor: pointer;
   font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-div.auth-button {
-  text-align: center;
-  line-height: 2.1;
+.fade-transition,
+button:hover {
+  color: #8d9db4;
+  background-color: #c6cad7;
 }
-button.big-login-button,
-button.big-logout-button {
-  font-size: 1.4em;
-  border-radius: 5px;
-  margin: 20px;
-  width: 150px;
-  height: 80px;
+button.auth-button {
+  width: 100px;
+  height: 40px;
+  font-size: 0.6em;
+  border-radius: 3px;
 }
 table {
   border-collapse: collapse;
@@ -141,12 +131,13 @@ div.hr-shoutout {
   font-size: 1.2em;
   margin: 0 2em;
 }
-.login-button {
-  width: 180px;
-  height: 65px;
-  margin: 1em auto;
-  font-size: 1em;
+button.big-login-button,
+button.big-logout-button {
+  font-size: 1.4em;
   border-radius: 5px;
+  margin: 20px;
+  width: 150px;
+  height: 80px;
 }
 .browse-list {
   margin: auto;
