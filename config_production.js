@@ -1,5 +1,3 @@
-// For 
-
 module.exports = {
   host: process.env.HOSTNAME,
   port: process.env.PORT,
