@@ -43,7 +43,7 @@ exports.submit = function(req, res) {
         res.send(201);
       },
       function(error){
-        console.log('failed to store vote\n');
+        console.log('failed to store vote',error,'\n');
         res.send(400, error);
       }
     );
