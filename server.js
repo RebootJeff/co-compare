@@ -86,7 +86,7 @@ app.get('/api/logout', function(req, res){
 // Passport will perform FB login when client makes the following GET request
 app.get('/api/auth/facebook', passport.authenticate('facebook'));
 // Facebook will make the following GET request after user logs in
-app.get('/api/auth/facebook/callback', passport.authenticate('facebook', {
+app.get('/api/auth/facebook/callback', function(){ console.log('\n ~~~ whoa ~~~ \n'); }, passport.authenticate('facebook', {
   // TODO: Redirect user to whatever URL they were at before logging in
   successRedirect: '/',
   failureRedirect: '/'
