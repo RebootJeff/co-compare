@@ -1,16 +1,27 @@
-// ------------------------------------------------------------------
-// import font
+// __________________________________________________________________
+// Import font
 @import url(http://fonts.googleapis.com/css?family=Raleway:700,400);
 
-// ------------------------------------------------------------------
-// color vairables (palette from: http://pltts.me/palettes/8922)
+// __________________________________________________________________
+// Color vairables (palette reference: http://pltts.me/palettes/8922)
 $color_dark_grey = #58606E
 $color_light_grey = #C6CAD7
 $color_dark_slate = #8D9DB4
 $color_light_slate = #9CADC9
 $color_dark_purple = #4A4A6C
+$color_light_purple = #63638D
 
-// --- universal elements
+// __________________________________________________________________
+// This class made specifically to be extended for fade effects
+.transition
+  transition: .4s
+  -o-transition: .4s
+  -ms-transition: .4s
+  -moz-transition: .4s
+  -webkit-transition: .4s
+
+// __________________________________________________________________
+// Universal styles
 body
   background: #ddd
   font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif
@@ -20,6 +31,7 @@ body
   padding: 0
 
 a
+  @extend .transition
   color: $color_dark_purple
   text-decoration: none 
 
@@ -62,6 +74,7 @@ img.tiny-logo
   clear: both
 
 button
+  @extend .transition 
   color: white
   background-color: $color_dark_purple
   border-radius: 2px
@@ -69,12 +82,8 @@ button
   cursor: pointer
   font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif
 
-.fade-transition
-  
-
 button:hover
-  color: $color_dark_slate
-  background-color: $color_light_grey
+  background-color: $color_light_purple
 
 
 button.auth-button
@@ -101,7 +110,7 @@ div.hr-shoutout
   color: #777
   font-size: 0.9em
 
-// These placeholder text styles won't work if combined into 1 multi-selector
+// NOTE: These placeholder text styles won't work if combined into 1 multi-selector
 // Reference Source:
 //   http://stackoverflow.com/questions/2610497/change-an-inputs-html5-placeholder-color-with-css
 ::-webkit-input-placeholder
@@ -117,7 +126,8 @@ div.hr-shoutout
   color: #666
   font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif
 
-// --- view: home.html
+// __________________________________________________________________
+// View: home.html
 .home-wrapper
   width: 100%
   padding: 0
@@ -165,19 +175,11 @@ button.big-login-button, button.big-logout-button
   text-align: left
   font-weight: bold
 
-// .votes-col
-//   text-align: right
-
-// --- view: create.html
-
 input[type='text']
   padding: .5em
   background-color: #ddd
   border: 0
   border-radius: 2px
-  // box-shadow: 
-  //   inset 0 0 8px  rgba(0,0,0,0.1),
-  //         0 0 16px rgba(0,0,0,0.1)
 
 input.title-input
   width: 40%
@@ -204,8 +206,8 @@ input.score-description-input
 aside.share-section
   padding: 1.3em
 
-// --- views: create.html & viewComparison.html
-
+// __________________________________________________________________
+// Views: create.html & viewComparison.html
 .comparison-wrapper
   vertical-align: top
   margin-bottom: 34px
@@ -232,9 +234,8 @@ aside.share-section
 .spreadsheet td:first-child
   border-left: none
 
-// 
-// view: viewComparison.html
-
+// __________________________________________________________________
+// View: viewComparison.html
 form.controls
   margin: 1em 3em
 
@@ -290,6 +291,7 @@ div.radio-button-subgroup
   font-size: 1em
 
 [class*='icon-']
+  @extend .transition
   display: block
   margin: 4px 0
   width: 20px
@@ -302,7 +304,7 @@ div.radio-button-subgroup
   border-radius: 2px
 
 [class*='icon-']:hover, .clicked
-  background-color: $color_dark_slate
+  background-color: $color_light_purple
 
 .icon-thumbs-up
   background-image: url('../images/thumbs-up.svg')

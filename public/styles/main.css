@@ -1,4 +1,14 @@
 @import url("http://fonts.googleapis.com/css?family=Raleway:700,400");
+.transition,
+a,
+button,
+[class*='icon-'] {
+  transition: 0.4s;
+  -o-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -webkit-transition: 0.4s;
+}
 body {
   background: #ddd;
   font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -62,10 +72,8 @@ button {
   cursor: pointer;
   font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-.fade-transition,
 button:hover {
-  color: #8d9db4;
-  background-color: #c6cad7;
+  background-color: #63638d;
 }
 button.auth-button {
   width: 100px;
@@ -285,7 +293,7 @@ div.radio-button-subgroup {
 }
 [class*='icon-']:hover,
 .clicked {
-  background-color: #8d9db4;
+  background-color: #63638d;
 }
 .icon-thumbs-up {
   background-image: url("../images/thumbs-up.svg");
