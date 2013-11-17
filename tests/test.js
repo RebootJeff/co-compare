@@ -33,7 +33,8 @@ describe('New visitor (not logged in)', function(){
       agent.get(url + '/api/logout').end(function(res){
         expect(res).to.exist;
         expect(res.status).to.equal(200);
-        // expect(res).to.contain('no user');
+        // FIX THIS: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~!
+        expect(res.body).to.contain('no user');
         done();
       });
     }
@@ -49,11 +50,23 @@ describe('New visitor (not logged in)', function(){
     }
   );
 
-  it('should get redirected to login via Facebook',
+  it('should receive a 401 error when trying to vote',
     function(done){
-      agent.post(url + '/api/auth/facebook').send({}).end(function(res){
+      agent.post(url + '/api/vote').send({}).end(function(res){
         expect(res).to.exist;
         expect(res.status).to.equal(401);
+        done();
+      });
+    }
+  );
+
+  it('should get redirected to login via Facebook',
+    function(done){
+      agent.get(url + '/api/auth/facebook').end(function(res){
+        expect(res).to.exist;
+        // FIX THIS: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~!
+        expect(res.status).to.equal(302);
+        expect(res.redirect).to.be(true);
         done();
       });
     }
