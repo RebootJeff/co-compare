@@ -72,10 +72,11 @@ var checkAuth = function(req, res, next){
   }
 };
 app.get('/api/loggedin', function(req, res){
+  res.status(200);
   if(req.isAuthenticated()){
-    res.send(200, req.user);
+    res.send(req.user);
   } else {
-    res.send(200, 'no user');
+    res.send('no user');
   }
 });
 app.get('/api/logout', function(req, res){
@@ -94,17 +95,20 @@ app.get('/api/auth/facebook/callback', passport.authenticate('facebook', {
 
 // __________________________________________________________________
 // Routing API calls
-// TODO: Make this more CRUDy? (e.g., change `retrieve` to `read`)
 app.get('/api/home', homeRoute.browse);
 app.get('/api/view/:hash', retrieveRoute.retrieve);
 app.post('/api/submit', checkAuth, submitRoute.submit);
 app.post('/api/vote', checkAuth, voteRoute.submit);
-// catch-all route:
-app.use(function (req, res) {
-  res.json({'ok': false, 'status': '404'});
+// TODO: Add 404 error page rather than just responding with text
+app.use(function(req, res, next){
+  res.status(404);
+  res.type('txt').send('404 error: Not found');
 });
+// TODO: Add more CRUD
+// e.g., app.put('/api/edit/:hash', checkAuth, editComparison);
+// e.g., app.del('/api/edit/:hash',checkAuth, deleteComparison);
 
 // __________________________________________________________________
 // And now we wait...
 app.listen(config.port);
-console.log('Listening on port ' + config.port);
+console.log('Listening on port ' + config.port + ' ...');
