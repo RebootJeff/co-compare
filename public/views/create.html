@@ -26,7 +26,7 @@
               <input type="text"
                 class="subject-input"
                 ng-model="subject.name"
-                ng-maxlength="30"
+                ng-maxlength="40"
                 placeholder="Enter subject"
                 required/>
               <button class="remove-button" type="button" ng-click="removeSubject(subject)">
@@ -42,7 +42,7 @@
               <input type="text"
                 class="criterion-input"
                 ng-model="criterion.name"
-                ng-maxlength="20"
+                ng-maxlength="30"
                 placeholder="Enter criterion"
                 required/>
               <button class="remove-button" type="button" ng-click="removeCriterion(criterion)">
@@ -53,7 +53,7 @@
               <input type="text"
                 class="score-description-input"
                 ng-model="scores['s'+subject.index+'c'+criterion.index].description"
-                ng-maxlength="20"
+                ng-maxlength="40"
                 placeholder="Enter optional text"/>
             </td>
           </tr>
