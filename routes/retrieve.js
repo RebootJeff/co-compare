@@ -2,13 +2,14 @@
 'use strict';
 
 exports.retrieve = function(req, res) {
-  var models = req.app.get('models');
-  var sequelize = models.sequelize;
-  var Sequelize = models.Sequelize;
-  var responseData = {};
-  var hash = req.params.hash;
-
-  var comparisonId;
+  var models = req.app.get('models'),
+    sequelize = models.sequelize,
+    Sequelize = models.Sequelize,
+    responseData = {},
+    hash = req.params.hash,
+    userId = req.params.userId,
+    comparisonId;
+    console.log(req.params);
 
 // TODO: Consider using `include` and/or `Sequelize.Utils.QueryChainer` and/or
 // getters from object associations (e.g., `score.getVotes()`).
@@ -18,7 +19,8 @@ exports.retrieve = function(req, res) {
     .then(function(){
       return models.Comparison.find({ where: {hash: hash} });
     })
-    .then(function(comparison){  // TODO: QueryChainer would start here
+    .then(function(comparison){
+      responseData.isAdmin = (comparison.UserId === userId);
       responseData.title = comparison.name;
       responseData.comparisonId = comparison.id;
       comparisonId = comparison.id;
@@ -64,7 +66,7 @@ exports.retrieve = function(req, res) {
           name: vote.name,
           userId: vote.UserId
         };
-      });  // TODO: QueryChainer would end here
+      });
       res.send(200, responseData);
     },
     function(err){
