@@ -78,7 +78,8 @@ button {
 button:hover {
   background-color: #63638d;
 }
-button.auth-button {
+button.auth-button,
+button.delete-button {
   width: 100px;
   height: 40px;
   font-size: 0.6em;
@@ -221,6 +222,9 @@ aside.share-section {
 }
 .spreadsheet td:first-child {
   border-left: none;
+}
+button.delete-button {
+  vertical-align: middle;
 }
 form.controls {
   margin: 1em 3em;
