@@ -3,19 +3,24 @@
 angular.module('CoCompareApp')
   .controller('ViewComparisonCtrl', function ($rootScope, $scope, $http, $location, $routeParams) {
     $scope.loggedIn = !!$rootScope.user && !!$rootScope.user.name;
-    var hash = $routeParams.hash;
-    var comparison,
-        scores,
-        subjects,
-        criteria;
+    var hash = $routeParams.hash,
+      comparison,
+      scores,
+      subjects,
+      criteria;
 
     var refresh = $scope.refresh = function(){
-      $http.get('/api/view/' + hash).success(function(result){
+      var userId = ($rootScope.user) ? $rootScope.user.id : -1;
+      // TODO: use config.params argument of $http.get()
+      // TODO: use fbId instead of userId for better security?
+      $http.get('/api/comparison/' + hash + '/user/' + userId)
+      .success(function(result){
         comparison = result;
         comparison.hash = hash;
         displayComparison();
         computePoints();
         computeTotalScores();
+        $scope.userIsAdmin = result.isAdmin;
       }).error(function(){
         $scope.comparisonTitle = 'Comparison NOT FOUND';
       });
@@ -116,5 +121,14 @@ angular.module('CoCompareApp')
         window.alert('You must be logged in to vote.');
       }
     };
+
+    $scope.deleteComparison = function(){
+      $http.delete('/api/comparison/' + hash + '/user/' + userId)
+      .success(function(){
+        $location.url('/');
+      }).error(function(err){
+        // tell user the bad news
+      });
+    }
 
   });
