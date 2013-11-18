@@ -30,6 +30,9 @@ a:hover {
 .right {
   float: right;
 }
+.clear {
+  clear: both;
+}
 nav {
   background-color: #4a4a6c;
   color: #fff;
