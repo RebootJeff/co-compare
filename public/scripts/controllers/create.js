@@ -75,9 +75,10 @@ angular.module('CoCompareApp')
             comparisonName: $scope.comparisonName,
             subjects: subjects,
             criteria: criteria,
-            scores: scores
+            scores: scores,
+            userId: $rootScope.user.id
           });
-          $http.post('/api/submit', postData).success(function(responseData){
+          $http.post('/api/comparison', postData).success(function(responseData){
             $scope.submitted = true;
             $scope.sharePath = '/#/view/' + responseData.hash;
             $scope.shareLink = window.location.origin + $scope.sharePath;
