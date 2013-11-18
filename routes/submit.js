@@ -2,14 +2,11 @@
 'use strict';
 
 exports.submit = function(req, res) {
-  var models = req.app.get('models');
-  var sequelize = models.sequelize;
-  var hashFunc = require('crypto').createHash('md5');
-
-// DELETE THIS CONSOLE.LOG() EVENTUALLY --------!
-  console.log('INCOMING data',req.body);
-  var name = req.body.comparisonName;
-  var hash = 'err';
+  var models = req.app.get('models'),
+    sequelize = models.sequelize,
+    hashFunc = require('crypto').createHash('md5'),
+    name = req.body.comparisonName,
+    hash = 'err';
 
 // TODO: Refactor to take better advantage of associations
   sequelize
@@ -18,7 +15,8 @@ exports.submit = function(req, res) {
       hash = hashFunc.update(Date.now() + name).digest('hex').slice(0,5);
       return models.Comparison.create({
         name: name,
-        hash: hash
+        hash: hash,
+        UserId: req.body.userId
       });
     })
     .then(function(comparison){
