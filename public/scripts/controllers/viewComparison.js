@@ -7,10 +7,11 @@ angular.module('CoCompareApp')
       comparison,
       scores,
       subjects,
+      userId,
       criteria;
 
     var refresh = $scope.refresh = function(){
-      var userId = ($rootScope.user) ? $rootScope.user.id : -1;
+      userId = ($rootScope.user) ? $rootScope.user.id : -1;
       // TODO: use config.params argument of $http.get()
       // TODO: use fbId instead of userId for better security?
       $http.get('/api/comparison/' + hash + '/user/' + userId)
@@ -129,6 +130,6 @@ angular.module('CoCompareApp')
       }).error(function(err){
         // tell user the bad news
       });
-    }
+    };
 
   });
