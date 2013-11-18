@@ -9,7 +9,6 @@ exports.retrieve = function(req, res) {
     hash = req.params.hash,
     userId = req.params.userId,
     comparisonId;
-    console.log(req.params);
 
 // TODO: Consider using `include` and/or `Sequelize.Utils.QueryChainer` and/or
 // getters from object associations (e.g., `score.getVotes()`).
@@ -20,7 +19,7 @@ exports.retrieve = function(req, res) {
       return models.Comparison.find({ where: {hash: hash} });
     })
     .then(function(comparison){
-      responseData.isAdmin = (comparison.UserId === userId);
+      responseData.isAdmin = (comparison.UserId.toString() === userId);
       responseData.title = comparison.name;
       responseData.comparisonId = comparison.id;
       comparisonId = comparison.id;
