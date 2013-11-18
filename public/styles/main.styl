@@ -10,6 +10,7 @@ $color_dark_slate = #8D9DB4
 $color_light_slate = #9CADC9
 $color_dark_purple = #4A4A6C
 $color_light_purple = #63638D
+$color_dark_red = #A70D00
 
 // __________________________________________________________________
 // This class made specifically to be extended for fade effects
@@ -183,6 +184,11 @@ input[type='text']
   background-color: #ddd
   border: 0
   border-radius: 2px
+
+// style for when input field is populated improperly
+input.ng-invalid.ng-dirty
+  background-color: $color_dark_red
+  color: white
 
 input.title-input
   width: 40%

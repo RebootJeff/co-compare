@@ -170,6 +170,10 @@ input[type='text'] {
   border: 0;
   border-radius: 2px;
 }
+input.ng-invalid.ng-dirty {
+  background-color: #a70d00;
+  color: #fff;
+}
 input.title-input {
   width: 40%;
 }
