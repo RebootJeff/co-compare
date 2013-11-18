@@ -49,7 +49,7 @@ This README is intended to inform users, help beginner/intermediate devs, and in
 - **Node.js**: server-side app platform
   - **Express**: server-side framework
   - **Passport**: server-side authentication (via Facebook)
-  - **Sequelize**: ORM
+  - **Sequelize**: ORM (powerful, but docs could use a buff)
 - **SQL**: database (MySQL for dev; PostgreSQL for production)
 - **Moment.js**: time/date prettifier
 - **Stylus**: CSS pre-processor
@@ -57,14 +57,14 @@ This README is intended to inform users, help beginner/intermediate devs, and in
 (Why do some JS libraries/frameworks end with ".js" while others end with "JS" while others end with no suffix at all?)
 
 ### Tools
-- **git** (duh): version control tool
-- **npm** (duh): package manager for back-end libraries
-- **Bower**: package manager for front-end libraries
+- **git** (duh): version control boss
+- **npm** (duh): package wrangler for back-end libraries
+- **Bower**: package wrangler for front-end libraries
 - **Yeoman**: scaffolding/boilerplate provider
-- **Grunt**: workflow-related task automation
-- **Heroku**: web app hosting provider
+- **Grunt**: workflow-related task runner
+- **Heroku**: git-friendly web app hosting provider
 - **Ubuntu**: UNIX for those of us who're too cheap for MacOS
-- **Sublime Text 2**: linter and omnipotent syntax highlighting
+- **Sublime Text 2**: editor with support for linter and omnipotent syntax highlighting
 
 ### The Repo
 
@@ -76,7 +76,7 @@ This README is intended to inform users, help beginner/intermediate devs, and in
   - **styles**: Stylus code and resultant CSS
   - **views**: HTML inserted into `index.html` by Angular
 - **routes**: controllers that interact with the database
-- `config_production.js`: references production environment variables
+- `config_production.js`: references to production environment variables
 - `config_dev.js`: (not provided) private, local counterpart to config_production.js
 - `server.js`: starts the server
 
