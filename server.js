@@ -8,6 +8,7 @@ var express = require('express'),
   retrieveRoute = require('./routes/retrieve'),
   submitRoute = require('./routes/submit'),
   voteRoute = require('./routes/vote'),
+  deleteRoute = require('./routes/delete'),
   config,
   app = express();
 
@@ -96,8 +97,9 @@ app.get('/api/auth/facebook/callback', passport.authenticate('facebook', {
 // __________________________________________________________________
 // Routing API calls
 app.get('/api/home', homeRoute.browse);
-app.get('/api/view/:hash', retrieveRoute.retrieve);
-app.post('/api/submit', checkAuth, submitRoute.submit);
+app.get('/api/comparison/:hash/user/:userId', retrieveRoute.retrieve);
+app.post('/api/comparison', checkAuth, submitRoute.submit);
+app.delete('/api/comparison/:hash/user/:userId', checkAuth, deleteRoute.removeComparison);
 app.post('/api/vote', checkAuth, voteRoute.submit);
 // TODO: Add 404 error page rather than just responding with text
 app.use(function(req, res, next){
