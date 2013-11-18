@@ -37,5 +37,6 @@ exports.removeComparison = function(req, res) {
       function(error){
         res.send(500, error);
       }
-    );    
+    );
+
 };
