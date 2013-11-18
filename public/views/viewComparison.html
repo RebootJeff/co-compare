@@ -1,6 +1,7 @@
 <article class="comparison-wrapper">
   <header class="comparison-title">
     {{ comparisonTitle }}
+    <button class="delete-button" ng-click="deleteComparison()" ng-show="userIsAdmin">Delete</button>
     <a href="/api/auth/facebook"><button ng-show="!loggedIn" class="right auth-button">Log In</button></a>
     <a href="/api/logout"><button ng-show="loggedIn" class="right auth-button">Log Out</button></a>
   </header>
@@ -78,7 +79,4 @@
     </table>
   </section>
 
-  <section class="form-section clear">
-      <button class="submit-button" ng-click="deleteComparison()" ng-show="userIsAdmin">Delete</button>
-    </section>
 </article>
