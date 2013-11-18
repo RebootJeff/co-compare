@@ -30,13 +30,9 @@ This README is intended to inform users, help beginner/intermediate devs, and in
 
 ![landing page](dev/ss-home-view.png)
 
-#### Example comparison #1
+#### Example comparison
 
-![viewing a serious comparison]()
-
-#### Example comparison #2
-
-![viewing a silly comparison]()
+![viewing a serious comparison](dev/ss-serious-comparison-view.png)
 
 #### Example comparison creation
 
