@@ -108,7 +108,6 @@ app.use(function(req, res, next){
 });
 // TODO: Add more CRUD
 // e.g., app.put('/api/edit/:hash', checkAuth, editComparison);
-// e.g., app.del('/api/edit/:hash',checkAuth, deleteComparison);
 
 // __________________________________________________________________
 // And now we wait...
