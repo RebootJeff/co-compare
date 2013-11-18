@@ -8,7 +8,7 @@ Check out the deployed goodness: [Co-Compare is here!](http://cocompare.herokuap
 This README is intended to inform users, help beginner/intermediate devs, and inform any one looking to hire me ;)
 
 - [Usage](#usage)
-- [Screenshots](#screenshots)
+  - [Screenshots](#screenshots)
 - [Development](#development)
   - [Tech Stack](#tech-stack)
   - [Tools](#tools)
