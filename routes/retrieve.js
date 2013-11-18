@@ -19,6 +19,7 @@ exports.retrieve = function(req, res) {
       return models.Comparison.find({ where: {hash: hash} });
     })
     .then(function(comparison){
+      console.log('step1: comparison.UserId',comparison.UserId);
       responseData.isAdmin = (comparison.UserId.toString() === userId);
       responseData.title = comparison.name;
       responseData.comparisonId = comparison.id;
@@ -26,6 +27,7 @@ exports.retrieve = function(req, res) {
       return models.Subject.findAll({ where: {ComparisonId: comparisonId} });
     })
     .then(function(subjects){
+      console.log('step2: subjects.length',subjects.length);
       responseData.subjects = Sequelize.Utils._.map(subjects, function(subject){
         return {
           name: subject.name,
@@ -37,6 +39,7 @@ exports.retrieve = function(req, res) {
       return models.Criterion.findAll({ where: {ComparisonId: comparisonId} });
     })
     .then(function(criteria){
+      console.log('step3: criteria.length',criteria.length);
       responseData.criteria = Sequelize.Utils._.map(criteria, function(criterion){
         return {
           name: criterion.name,
@@ -48,6 +51,7 @@ exports.retrieve = function(req, res) {
       return models.Score.findAll({ where: {ComparisonId: comparisonId} });
     })
     .then(function(scores){
+      console.log('step4: scores.length',scores.length);
       responseData.scores = Sequelize.Utils._.map(scores, function(score){
         return {
           name: score.name,
@@ -59,6 +63,7 @@ exports.retrieve = function(req, res) {
       return models.Vote.findAll({ where: {ComparisonId: comparisonId} });
     })
     .then(function(votes){
+      console.log('step5: votes.length',votes.length);
       responseData.votes = Sequelize.Utils._.map(votes, function(vote){
         return {
           value: vote.value,
@@ -69,7 +74,7 @@ exports.retrieve = function(req, res) {
       res.send(200, responseData);
     },
     function(err){
-      console.log('NOTHING FOUND FROM DB');
+      console.log('NOTHING FOUND FROM DB - Error:',err);
       res.send(404, err);
     });
 
