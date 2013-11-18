@@ -1,16 +1,17 @@
 # Co-Compare
 Crowd-sourced decision matrices.
 
-Check out the deployed goodness: [LINK TO DEPLOYED VERSION GOES HERE YEAH I'M YELLING CAN'T YOU SEE](http://)
+Check out the deployed goodness: [Co-Compare is here!](http://cocompare.herokuapp.com)
 
 ## Contents
+
+This README is intended to inform users, help beginner/intermediate devs, and inform any one looking to hire me ;)
 
 - [Usage](#usage)
 - [Screenshots](#screenshots)
 - [Development](#development)
   - [Tech Stack](#tech-stack)
   - [Tools](#tools)
-  - [Challenges](#challenges)
   - [The Repo](#the-repo)
   - [The Creator](#the-creator)
 
@@ -43,16 +44,15 @@ Check out the deployed goodness: [LINK TO DEPLOYED VERSION GOES HERE YEAH I'M YE
 
 ## Development
 
-Creating this app helped me learn valuable lessons about full-stack architecture, CRUD, workflow tools, UX/UI, dev life cycle, version control, Linux, documentation, and **deployment**. I expected some of these topics to be easy, but the learning process was far from hiccup-free. Never give up!
-
 ### Tech Stack
 - **AngularJS**: client-side framework
 - **Node.js**: server-side app platform
   - **Express**: server-side framework
   - **Passport**: server-side authentication (via Facebook)
   - **Sequelize**: ORM
-- **SQL**: database
+- **SQL**: database (MySQL for dev; PostgreSQL for production)
 - **Moment.js**: time/date prettifier
+- **Stylus**: CSS pre-processor
 
 (Why do some JS libraries/frameworks end with ".js" while others end with "JS" while others end with no suffix at all?)
 
@@ -62,16 +62,9 @@ Creating this app helped me learn valuable lessons about full-stack architecture
 - **Bower**: package manager for front-end libraries
 - **Yeoman**: scaffolding/boilerplate provider
 - **Grunt**: workflow-related task automation
-- **Stylus**: CSS pre-processor
 - **Heroku**: web app hosting provider
 - **Ubuntu**: UNIX for those of us who're too cheap for MacOS
 - **Sublime Text 2**: linter and omnipotent syntax highlighting
-
-### Challenges
-
-- Working with an asynchronous platform like Node.js is great for performance, but it can feel less straightforward for development.
-- Relational databases are tricky --especially when querying them in an asynchronous environment.
-- Authentication can be quirky, and introducing authentication to an app requires the addition of code into all parts of the app. With each addition comes its own set of questions (e.g., Should the view be affected? What access should be limited?).
 
 ### The Repo
 
