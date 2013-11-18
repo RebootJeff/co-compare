@@ -11,8 +11,14 @@
   </section>
 
   <section class="browse-list-wrapper">
+    <div class="spinner" ng-show="loading">
+      <img src="images/spinner.gif"/>
+    </div>
+
     <form class="controls">
+      <!-- TODO: Add sorting/filtering controls? -->
     </form>
+
     <table class="browse-list">
       <tr class="comparison-row" ng-repeat="comparison in comparisons | orderBy:'createdAt':true">
         <td class="title-col"><a href="{{ comparison.link }}">{{ comparison.title }}</a></td>
