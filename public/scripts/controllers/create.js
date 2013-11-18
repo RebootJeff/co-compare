@@ -83,6 +83,8 @@ angular.module('CoCompareApp')
             $scope.sharePath = '/#/view/' + responseData.hash;
             $scope.shareLink = window.location.origin + $scope.sharePath;
           });
+        } else {
+          // TODO: tell user they have hit a character limit
         }
       }
     };
