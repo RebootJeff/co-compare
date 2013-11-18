@@ -2,8 +2,10 @@
 
 angular.module('CoCompareApp')
   .controller('HomeCtrl', function ($rootScope, $scope, $http) {
+    $scope.loading = true;
     $scope.loggedIn = !!$rootScope.user && !!$rootScope.user.name;
     $http.get('/api/home').success(function(responseData) {
+      $scope.loading = false;
       $scope.comparisons = responseData.comparisons;
     });
 
