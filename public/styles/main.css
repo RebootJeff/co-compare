@@ -98,6 +98,9 @@ footer.master-footer {
   height: 34px;
   background-color: #c6cad7;
 }
+div.spinner {
+  margin: 20px;
+}
 div.hr-shoutout {
   margin: 9px;
   color: #777;
@@ -169,6 +172,10 @@ input[type='text'] {
   background-color: #ddd;
   border: 0;
   border-radius: 2px;
+}
+input.ng-invalid.ng-dirty {
+  background-color: #a70d00;
+  color: #fff;
 }
 input.title-input {
   width: 40%;

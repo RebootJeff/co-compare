@@ -19,7 +19,7 @@ exports.retrieve = function(req, res) {
       return models.Comparison.find({ where: {hash: hash} });
     })
     .then(function(comparison){
-      responseData.isAdmin = (comparison.UserId.toString() === userId);
+      responseData.isAdmin = (comparison.UserId && comparison.UserId.toString() === userId);
       responseData.title = comparison.name;
       responseData.comparisonId = comparison.id;
       comparisonId = comparison.id;

@@ -10,9 +10,10 @@ $color_dark_slate = #8D9DB4
 $color_light_slate = #9CADC9
 $color_dark_purple = #4A4A6C
 $color_light_purple = #63638D
+$color_dark_red = #A70D00
 
 // __________________________________________________________________
-// This class made specifically to be extended for fade effects
+// This class made specifically to be extended for effects
 .transition
   transition: .4s
   -o-transition: .4s
@@ -108,6 +109,9 @@ footer.master-footer
   height: 34px
   background-color: $color_light_grey
 
+div.spinner
+  margin: 20px
+
 div.hr-shoutout
   margin: 9px
   color: #777
@@ -183,6 +187,11 @@ input[type='text']
   background-color: #ddd
   border: 0
   border-radius: 2px
+
+// style for when input field is populated improperly
+input.ng-invalid.ng-dirty
+  background-color: $color_dark_red
+  color: white
 
 input.title-input
   width: 40%
@@ -280,6 +289,7 @@ div.radio-button-subgroup
 
 .criterion, .score
   margin-right: 0.1em
+  // TODO: add width/height to add scrollability?
 
 .vote-button-wrapper
   width: 30px

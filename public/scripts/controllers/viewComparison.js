@@ -11,6 +11,7 @@ angular.module('CoCompareApp')
       criteria;
 
     var refresh = $scope.refresh = function(){
+      $scope.loading = true;
       userId = ($rootScope.user) ? $rootScope.user.id : -1;
       // TODO: use config.params argument of $http.get()
       // TODO: use fbId instead of userId for better security?
@@ -22,6 +23,7 @@ angular.module('CoCompareApp')
         computePoints();
         computeTotalScores();
         $scope.userIsAdmin = result.isAdmin;
+        $scope.loading = false;
       }).error(function(){
         $scope.comparisonTitle = 'Comparison NOT FOUND';
       });

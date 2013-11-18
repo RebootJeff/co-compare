@@ -10,6 +10,7 @@
     <section class="weight-toggle-controls">
       <input type="checkbox" ng-model="isWeighted" ng-click="computeTotalScores()">Use criteria weights
     </section>
+
     <section class="sorting-controls">
       <label>Sort criteria by</label>
       <div class="radio-button-subgroup">
@@ -23,6 +24,7 @@
         <input type="radio" ng-model="critReverse" value="true"/>descending
       </div>
     </section>
+    
     <section class="sorting-controls">
       <label>Sort subjects by</label>
       <div class="radio-button-subgroup">
@@ -37,6 +39,10 @@
   </form>
 
   <section class="spreadsheet-wrapper">
+    <div class="spinner" ng-show="loading">
+      <img src="images/spinner.gif"/>
+    </div>
+
     <table class="spreadsheet">
       <tbody>
         <tr>
