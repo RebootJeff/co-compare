@@ -68,6 +68,7 @@ angular.module('CoCompareApp')
 
     $scope.submit = function(){
       if($scope.loggedIn && !$scope.createForm.$invalid){
+        $scope.loading = true;
         var postData = JSON.stringify({
           comparisonName: $scope.comparisonName,
           subjects: subjects,
@@ -79,6 +80,7 @@ angular.module('CoCompareApp')
           $scope.submitted = true;
           $scope.sharePath = '/#/view/' + responseData.hash;
           $scope.shareLink = window.location.origin + $scope.sharePath;
+          $scope.loading = false;
         });
       } else {
         // TODO: tell user why they can't submit yet
