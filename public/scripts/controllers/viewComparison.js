@@ -2,6 +2,7 @@
 
 angular.module('CoCompareApp')
   .controller('ViewComparisonCtrl', function ($rootScope, $scope, $http, $location, $routeParams) {
+    $scope.loading = true;
     $scope.loggedIn = !!$rootScope.user && !!$rootScope.user.name;
     var hash = $routeParams.hash,
       comparison,
@@ -11,7 +12,6 @@ angular.module('CoCompareApp')
       criteria;
 
     var refresh = $scope.refresh = function(){
-      $scope.loading = true;
       userId = ($rootScope.user) ? $rootScope.user.id : -1;
       // TODO: use config.params argument of $http.get()
       // TODO: use fbId instead of userId for better security?

@@ -18,26 +18,35 @@ exports.submit = function(req, res) {
         UserId: req.body.userId,
         name: req.body.name
       }}).success(function(vote){
-        if(vote){
-          // User has already voted on the given score
-          if(vote.value === req.body.value){
-            // User is trying to undo their vote
-            vote.destroy();
-          } else {
-            // User wants to switch their vote
-            vote.updateAttributes({value: req.body.value});
 
-          }
-        } else {
-          // User hasn't voted on the given score
-          models.Vote.create({
-            name: req.body.name,
-            ComparisonId: req.body.comparisonId,
-            value: req.body.value,
-            UserId: req.body.userId
-          });
-          statusCode = 201;
-        }
+        models.Vote.create({
+          name: req.body.name,
+          ComparisonId: req.body.comparisonId,
+          value: req.body.value,
+          UserId: req.body.userId
+        });
+        statusCode = 201;
+
+        // if(vote){
+        //   // User has already voted on the given score
+        //   if(vote.value === req.body.value){
+        //     // User is trying to undo their vote
+        //     vote.destroy();
+        //   } else {
+        //     // User wants to switch their vote
+        //     vote.updateAttributes({value: req.body.value});
+
+        //   }
+        // } else {
+        //   // User hasn't voted on the given score
+        //   models.Vote.create({
+        //     name: req.body.name,
+        //     ComparisonId: req.body.comparisonId,
+        //     value: req.body.value,
+        //     UserId: req.body.userId
+        //   });
+        //   statusCode = 201;
+        // }
       });
     })
     .then(

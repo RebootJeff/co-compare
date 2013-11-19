@@ -98,7 +98,7 @@ footer.master-footer {
   height: 34px;
   background-color: #c6cad7;
 }
-div.spinner {
+div.spinner-wrapper {
   margin: 20px;
 }
 div.hr-shoutout {
@@ -229,6 +229,22 @@ aside.share-section {
 }
 .spreadsheet td:first-child {
   border-left: none;
+}
+div.refresh-spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 128px;
+  margin: auto;
+  color: #fff;
+  background-image: url("../images/spinner.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+img.refresh-spinner {
+  margin: 100px;
 }
 button.delete-button {
   vertical-align: middle;
