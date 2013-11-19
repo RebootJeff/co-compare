@@ -174,7 +174,7 @@ input[type='text'] {
   border-radius: 2px;
 }
 input.ng-invalid.ng-dirty {
-  background-color: #a70d00;
+  background-color: #ffc0f2;
   color: #fff;
 }
 input.title-input {
