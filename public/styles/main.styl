@@ -109,7 +109,7 @@ footer.master-footer
   height: 34px
   background-color: $color_light_grey
 
-div.spinner
+div.spinner-wrapper
   margin: 20px
 
 div.hr-shoutout
@@ -248,6 +248,22 @@ aside.share-section
 
 // __________________________________________________________________
 // View: viewComparison.html
+div.refresh-spinner-overlay
+  position: fixed
+  top: 0
+  left: 0
+  bottom: 0
+  right: 0
+  height: 128px
+  margin: auto
+  color: white
+  background-image: url('../images/spinner.gif')
+  background-repeat: no-repeat
+  background-position: center
+
+img.refresh-spinner
+  margin: 100px
+
 button.delete-button
   @extend button.auth-button
   vertical-align: middle
@@ -290,6 +306,7 @@ div.radio-button-subgroup
 .criterion, .score
   margin-right: 0.1em
   // TODO: add width/height to add scrollability?
+  // maybe use max-width too?
 
 .vote-button-wrapper
   width: 30px
@@ -330,6 +347,5 @@ div.radio-button-subgroup
   background-image: url('../images/thumbs-down.svg')
 
 .icon-refresh
-  // TODO: add animation to make this button a spinner too!
   background-image: url('../images/loop.svg')
   margin: auto auto
