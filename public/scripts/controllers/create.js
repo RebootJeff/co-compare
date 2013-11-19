@@ -67,25 +67,23 @@ angular.module('CoCompareApp')
     };
 
     $scope.submit = function(){
-      if(!$scope.loggedIn){
-        window.alert('You must be logged in to create a new comparison.');
+      if($scope.loggedIn && !$scope.createForm.$invalid){
+        $scope.loading = true;
+        var postData = JSON.stringify({
+          comparisonName: $scope.comparisonName,
+          subjects: subjects,
+          criteria: criteria,
+          scores: scores,
+          userId: $rootScope.user.id
+        });
+        $http.post('/api/comparison', postData).success(function(responseData){
+          $scope.submitted = true;
+          $scope.sharePath = '/#/view/' + responseData.hash;
+          $scope.shareLink = window.location.origin + $scope.sharePath;
+          $scope.loading = false;
+        });
       } else {
-        if(!$scope.createForm.$invalid){
-          var postData = JSON.stringify({
-            comparisonName: $scope.comparisonName,
-            subjects: subjects,
-            criteria: criteria,
-            scores: scores,
-            userId: $rootScope.user.id
-          });
-          $http.post('/api/comparison', postData).success(function(responseData){
-            $scope.submitted = true;
-            $scope.sharePath = '/#/view/' + responseData.hash;
-            $scope.shareLink = window.location.origin + $scope.sharePath;
-          });
-        } else {
-          // TODO: tell user they have hit a character limit
-        }
+        // TODO: tell user why they can't submit yet
       }
     };
 

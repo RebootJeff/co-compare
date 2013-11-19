@@ -10,7 +10,7 @@ $color_dark_slate = #8D9DB4
 $color_light_slate = #9CADC9
 $color_dark_purple = #4A4A6C
 $color_light_purple = #63638D
-$color_dark_red = #A70D00
+$color_light_magenta = #FFC0F2
 
 // __________________________________________________________________
 // This class made specifically to be extended for effects
@@ -190,7 +190,7 @@ input[type='text']
 
 // style for when input field is populated improperly
 input.ng-invalid.ng-dirty
-  background-color: $color_dark_red
+  background-color: $color_light_magenta
   color: white
 
 input.title-input
@@ -248,7 +248,7 @@ aside.share-section
 
 // __________________________________________________________________
 // View: viewComparison.html
-div.refresh-spinner-overlay
+div.spinner-overlay
   position: fixed
   top: 0
   left: 0
@@ -260,9 +260,6 @@ div.refresh-spinner-overlay
   background-image: url('../images/spinner.gif')
   background-repeat: no-repeat
   background-position: center
-
-img.refresh-spinner
-  margin: 100px
 
 button.delete-button
   @extend button.auth-button
