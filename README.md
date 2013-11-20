@@ -1,11 +1,9 @@
 # Co-Compare
-Crowd-sourced decision matrices.
-
-Check out the deployed goodness: [Co-Compare is here!](http://cocompare.herokuapp.com)
+Crowd-sourced decision matrices. Check out the deployed goodness: [Co-Compare is here!](http://cocompare.herokuapp.com)
 
 ## Contents
 
-This README is intended to inform users, help beginner/intermediate devs, and inform any one looking to hire me ;)
+This README is intended to inform users, help beginner/intermediate devs, and brag to anyone looking to hire me ;)
 
 - [Usage](#usage)
   - [Screenshots](#screenshots)
@@ -39,6 +37,8 @@ This README is intended to inform users, help beginner/intermediate devs, and in
 ![creating a comparison](dev/ss-create-view.png)
 
 ## Development
+
+The biggest challenges were learning Sequelize and successfully playing whack-a-mole with deployment issues.
 
 ### Tech Stack
 - **AngularJS**: client-side framework
