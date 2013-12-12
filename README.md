@@ -60,7 +60,6 @@ The biggest challenges were learning Sequelize and successfully playing whack-a-
 - **Grunt**: workflow-related task runner
 - **Heroku**: git-friendly web app hosting provider
 - **Ubuntu**: UNIX for those of us who're too cheap for MacOS
-- **Sublime Text 2**: editor with support for linter and omnipotent syntax highlighting
 
 ### The Repo
 
@@ -78,4 +77,4 @@ The biggest challenges were learning Sequelize and successfully playing whack-a-
 
 ### The Creator
 
-Co-Compare was created by [RebootJeff](http://rebootjeff.github.io) in 3 weeks at [Hack Reactor](http://www.hackreactor.com).
+Co-Compare was created by [RebootJeff](http://rebootjeff.github.io) at [Hack Reactor](http://www.hackreactor.com).
