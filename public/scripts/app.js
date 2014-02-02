@@ -4,16 +4,13 @@ angular.module('CoCompareApp', [])
 
     // __________________________________________________________________
     // Function to check with server about authentication
-    var setLoginStatus = function($rootScope, $q, $http){
-      // TODO: Using router `resolve` to call this function may not be best practice
+    var setLoginStatus = function($q, $http, UserProvider){
       var deferred = $q.defer();
       $http.get('/api/loggedin').success(function(user){
-        if(user !== 'no user'){
-          $rootScope.user = {
-            name: user.name,
-            fbId: user.fbId,
-            id: user.id
-          };
+        if(user === 'no user'){
+          UserProvider.clearUser();
+        } else {
+          UserProvider.setUser(user);
         }
         deferred.resolve();
       });
