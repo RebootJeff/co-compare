@@ -78,6 +78,11 @@ button {
 button:hover {
   background-color: #63638d;
 }
+button:disabled {
+  background-color: #c6cad7;
+  color: #58606e;
+  border: 1px solid #58606e;
+}
 button.auth-button,
 button.delete-button {
   width: 100px;
