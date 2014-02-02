@@ -1,20 +1,22 @@
 angular.module('CoCompareApp')
-  .controller('ViewComparisonCtrl', function ($rootScope, $scope, $http, $location, $routeParams) {
+  .controller('ViewComparisonCtrl', function ($scope, $http, $location, $routeParams, UserProvider) {
     'use strict';
-    $scope.loggedIn = !!$rootScope.user && !!$rootScope.user.name;
-    var hash = $routeParams.hash,
-      comparison,
+
+    var comparison,
       scores,
       subjects,
       userId,
-      criteria;
+      criteria,
+      hash = $routeParams.hash,
+      user = UserProvider.getUser();
+
+    $scope.loggedIn = (user.id !== -1);
 
     var refresh = $scope.refresh = function(){
       $scope.loading = true;
-      userId = ($rootScope.user) ? $rootScope.user.id : -1;
       // TODO: use config.params argument of $http.get()
       // TODO: use fbId instead of userId for better security?
-      $http.get('/api/comparison/' + hash + '/user/' + userId)
+      $http.get('/api/comparison/' + hash + '/user/' + user.id)
       .success(function(result){
         comparison = result;
         comparison.hash = hash;
@@ -110,7 +112,7 @@ angular.module('CoCompareApp')
           comparisonId: comparison.comparisonId,
           name: 'c' + crit.index,
           value: value,
-          userId: $rootScope.user.id
+          userId: user.id
         };
 
         // check if vote is NOT for a criterion
@@ -125,7 +127,7 @@ angular.module('CoCompareApp')
     };
 
     $scope.deleteComparison = function(){
-      $http.delete('/api/comparison/' + hash + '/user/' + userId)
+      $http.delete('/api/comparison/' + hash + '/user/' + user.id)
       .success(function(){
         $location.url('/');
       }).error(function(err){

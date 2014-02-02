@@ -1,7 +1,9 @@
 angular.module('CoCompareApp')
-  .controller('CreateCtrl', function ($rootScope, $scope, $http) {
+  .controller('CreateCtrl', function ($scope, $http, UserProvider) {
     'use strict';
-    $scope.loggedIn = !!$rootScope.user && !!$rootScope.user.name;
+
+    var user = UserProvider.getUser();
+    $scope.loggedIn = (user.id !== -1);
 
     // These indices are used to assign scores to their respective subjects & criteria
     var critIndex = 0;
@@ -76,7 +78,7 @@ angular.module('CoCompareApp')
           subjects: subjects,
           criteria: criteria,
           scores: scores,
-          userId: $rootScope.user.id
+          userId: user.id
         });
         $http.post('/api/comparison', postData).success(function(responseData){
           $scope.submitted = true;
@@ -85,7 +87,8 @@ angular.module('CoCompareApp')
           $scope.loading = false;
         });
       } else {
-        // TODO: tell user why they can't submit yet
+        // TODO: animate/flash the "you must log in to submit" text that's
+        // already on the page
       }
     };
 
