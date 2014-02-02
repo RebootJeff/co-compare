@@ -3,27 +3,46 @@ angular.module('CoCompareApp').provider('UserProvider', function(){
 
   var userData = {};
 
-  this.setUser = function(userFromServer){
-    this.userData = {
-      name: userFromServer.name,
-      fbId: userFromServer.fbId,
-      id: userFromServer.id
-    };
-  };
+  // this.setUser = function(userFromServer){
+  //   userData = {
+  //     name: userFromServer.name,
+  //     fbId: userFromServer.fbId,
+  //     id: userFromServer.id
+  //   };
+  // };
 
-  this.clearUser = function(){
-    this.userData = {
-      name: '',
-      fbId: -1,
-      id: -1
-    };
-  };
+  // this.clearUser = function(){
+  //   userData = {
+  //     name: '',
+  //     fbId: -1,
+  //     id: -1
+  //   };
+  // };
 
   this.$get = function(){
     return {
+
       getUser: function(){
-        return this.userData;
+        return userData;
+      },
+
+      setUser: function(userFromServer){
+        userData = {
+          name: userFromServer.name,
+          fbId: userFromServer.fbId,
+          id: userFromServer.id
+        };
+      },
+
+      clearUser: function(){
+        userData = {
+          name: '',
+          fbId: -1,
+          id: -1
+        };
       }
+
     };
   };
+
 });
