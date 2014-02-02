@@ -1,7 +1,7 @@
 angular.module('CoCompareApp').provider('UserProvider', function(){
   'use strict';
 
-  this.userData = null;
+  var userData = {};
 
   this.setUser = function(userFromServer){
     this.userData = {
@@ -12,10 +12,18 @@ angular.module('CoCompareApp').provider('UserProvider', function(){
   };
 
   this.clearUser = function(){
-    userData = null;
+    this.userData = {
+      name: '',
+      fbId: -1,
+      id: -1
+    };
   };
 
-  this.getUser = function(){
-    return userData;
+  this.$get = function(){
+    return {
+      getUser: function(){
+        return this.userData;
+      }
+    };
   };
 });
