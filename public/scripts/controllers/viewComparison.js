@@ -1,4 +1,3 @@
-
 angular.module('CoCompareApp')
   .controller('ViewComparisonCtrl', function ($rootScope, $scope, $http, $location, $routeParams) {
     'use strict';

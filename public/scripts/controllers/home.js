@@ -1,4 +1,3 @@
-
 angular.module('CoCompareApp')
   .controller('HomeCtrl', function ($rootScope, $scope, $http) {
     'use strict';

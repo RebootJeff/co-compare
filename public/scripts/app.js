@@ -1,4 +1,3 @@
-
 angular.module('CoCompareApp', [])
   .config(function ($routeProvider, $httpProvider) {
     'use strict';
