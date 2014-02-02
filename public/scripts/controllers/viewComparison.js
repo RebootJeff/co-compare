@@ -113,7 +113,7 @@ angular.module('CoCompareApp')
           userId: $rootScope.user.id
         };
 
-        // check if vote is NOT for a criterion 
+        // check if vote is NOT for a criterion
         if(subj){
           postData.name = 's' + subj.index + postData.name;
         }
