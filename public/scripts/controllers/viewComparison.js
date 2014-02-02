@@ -1,7 +1,7 @@
-'use strict';
 
 angular.module('CoCompareApp')
   .controller('ViewComparisonCtrl', function ($rootScope, $scope, $http, $location, $routeParams) {
+    'use strict';
     $scope.loggedIn = !!$rootScope.user && !!$rootScope.user.name;
     var hash = $routeParams.hash,
       comparison,

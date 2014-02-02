@@ -1,7 +1,7 @@
-'use strict';
 
 angular.module('CoCompareApp', [])
   .config(function ($routeProvider, $httpProvider) {
+    'use strict';
 
     // __________________________________________________________________
     // Check with server about authentication

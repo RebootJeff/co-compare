@@ -1,7 +1,7 @@
-'use strict';
 
 angular.module('CoCompareApp')
   .controller('CreateCtrl', function ($rootScope, $scope, $http) {
+    'use strict';
     $scope.loggedIn = !!$rootScope.user && !!$rootScope.user.name;
 
     // These indices are used to assign scores to their respective subjects & criteria

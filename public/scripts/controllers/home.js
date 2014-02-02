@@ -1,7 +1,7 @@
-'use strict';
 
 angular.module('CoCompareApp')
   .controller('HomeCtrl', function ($rootScope, $scope, $http) {
+    'use strict';
     $scope.loading = true;
     $scope.loggedIn = !!$rootScope.user && !!$rootScope.user.name;
     $http.get('/api/home').success(function(responseData) {
