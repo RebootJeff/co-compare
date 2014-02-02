@@ -19,7 +19,7 @@ angular.module('CoCompareApp')
       index: critIndex
     }];
 
-    // Scores are kept in a hash instead of a 2-D array decrease complexity
+    // Scores are kept in a hash instead of a 2-D array to decrease complexity
     // introduced upon removal of a subject or criterion.
     var scores = $scope.scores = {
       s0c0: {points: 0, description: ''}
