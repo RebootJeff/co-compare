@@ -3,7 +3,7 @@ angular.module('CoCompareApp', [])
     'use strict';
 
     // __________________________________________________________________
-    // Check with server about authentication
+    // Function to check with server about authentication
     var setLoginStatus = function($rootScope, $q, $http){
       // TODO: Using router `resolve` to call this function may not be best practice
       var deferred = $q.defer();
@@ -20,7 +20,7 @@ angular.module('CoCompareApp', [])
     };
 
     // __________________________________________________________________
-    // Add interceptor to detect auth errors
+    // Interceptor for detecting auth errors
     $httpProvider.responseInterceptors.push(function($q, $location){
       return function(promise){
         return promise.then(
@@ -41,7 +41,7 @@ angular.module('CoCompareApp', [])
     });
 
     // __________________________________________________________________
-    // routes
+    // Routes
     $routeProvider
       .when('/', {
         templateUrl: 'views/home.html',
