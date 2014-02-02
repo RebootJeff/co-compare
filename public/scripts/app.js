@@ -25,11 +25,11 @@ angular.module('CoCompareApp', [])
     $httpProvider.responseInterceptors.push(function($q, $location){
       return function(promise){
         return promise.then(
-          // success callback
+          // success callback:
           function(response){
             return response;
           },
-          // error callback
+          // error callback:
           function(response){
             if(response.status === 401){
               window.alert('server says you must log in to do that');
