@@ -122,7 +122,7 @@ angular.module('CoCompareApp')
 
         $http.post('/api/vote/', postData).success(refresh);
       } else {
-        window.alert('You must be logged in to vote.');
+        $scope.showLoginRequest = true;
       }
     };
 
@@ -133,6 +133,10 @@ angular.module('CoCompareApp')
       }).error(function(err){
         // tell user the bad news
       });
+    };
+
+    $scope.closeLoginRequest = function(){
+      $scope.showLoginRequest = false;
     };
 
   });
