@@ -71,13 +71,13 @@
     </section>
 
     <section class="form-section">
-      <aside class="share-section" ng-show="!loggedIn">
+      <aside class="share-aside" ng-show="!loggedIn">
         You must log in to submit a new comparison. You can do it! I believe in you!
       </aside>
       <button class="submit-button" ng-click="submit()" ng-show="!submitted" ng-disabled="!loggedIn">
         Submit
       </button>
-      <aside class="share-section" ng-show="submitted">
+      <aside class="share-aside" ng-show="submitted">
         View/share your comparison with this link:
         <a href="{{ shareLink }}">{{ shareLink }}</a>
       </aside>
