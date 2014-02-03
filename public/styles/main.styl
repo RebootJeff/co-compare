@@ -1,16 +1,7 @@
 // __________________________________________________________________
-// Import font
+// Imports
+@import 'colors'
 @import url(http://fonts.googleapis.com/css?family=Raleway:700,400);
-
-// __________________________________________________________________
-// Color vairables (palette reference: http://pltts.me/palettes/8922)
-$color_dark_grey = #58606E
-$color_light_grey = #C6CAD7
-$color_dark_slate = #8D9DB4
-$color_light_slate = #9CADC9
-$color_dark_purple = #4A4A6C
-$color_light_purple = #63638D
-$color_light_magenta = #FFC0F2
 
 // __________________________________________________________________
 // This class made specifically to be extended for effects
@@ -94,7 +85,11 @@ button:disabled
   color: $color_dark_grey
   border: 1px solid $color_dark_grey
 
-button.auth-button
+.med-btn
+  padding: 0.5em
+  font-size: 1.2em
+
+.auth-button
   width: 100px
   height: 40px
   font-size: 0.6em
@@ -250,24 +245,37 @@ input.ng-invalid.ng-dirty
 .spreadsheet td:first-child
   border-left: none
 
-.spinner-overlay
+.overlay
   position: fixed
   top: 0
   left: 0
   bottom: 0
   right: 0
-  height: 128px
   margin: auto
-  color: white
+
+.spinner
+  height: 128px
   background-image: url('../images/spinner.gif')
   background-repeat: no-repeat
   background-position: center
+  color: white
+
+.alert-box
+  position: absolute
+  top: 25%
+  left: 25%
+  right: 75%
+  padding: 2em
+  width: 50%
+  border-radius: 4px
+  background-color: rgba($color_dark_grey, 0.9)
+  color: white
 
 // __________________________________________________________________
 // View: viewComparison.html
 
 .delete-button
-  @extend button.auth-button
+  @extend .auth-button
   vertical-align: middle
 
 .controls
