@@ -11,27 +11,19 @@ angular.module('CoCompareApp')
 
     // These declarations work with live data-binding because they deal with
     // arrays/objects, which are mutable.
-    var subjects = $scope.subjects = [{
-      name: '',
-      index: subjIndex
-    }];
-    var criteria = $scope.criteria = [{
-      name: '',
-      index: critIndex
-    }];
+    var subjects = $scope.subjects = [{ name: '', index: subjIndex }];
+    var criteria = $scope.criteria = [{ name: '', index: critIndex }];
 
     // Scores are kept in a hash instead of a 2-D array to decrease complexity
     // introduced upon removal of a subject or criterion.
-    var scores = $scope.scores = {
-      s0c0: {points: 0, description: ''}
-    };
+    var scores = $scope.scores = { s0c0: { points: 0, description: '' } };
 
     $scope.addSubject = function(){
       subjIndex++;
       subjects.push({name: '', index: subjIndex});
       for(var i = 0; i < criteria.length; i++){
         if(scores['s' + subjIndex + 'c' + criteria[i].index] === undefined){
-          scores['s' + subjIndex + 'c' + criteria[i].index] = {points: 0, description: ''};
+          scores['s' + subjIndex + 'c' + criteria[i].index] = { points: 0, description: '' };
         }
       }
     };
@@ -40,7 +32,7 @@ angular.module('CoCompareApp')
       criteria.push({name: '', index: critIndex});
       for(var i = 0; i < subjects.length; i++){
         if(scores['s' + subjects[i].index + 'c' + critIndex] === undefined){
-          scores['s' + subjects[i].index + 'c' + critIndex] = {points: 0, description: ''};
+          scores['s' + subjects[i].index + 'c' + critIndex] = { points: 0, description: '' };
         }
       }
     };
