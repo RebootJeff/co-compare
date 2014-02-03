@@ -86,9 +86,6 @@ angular.module('CoCompareApp')
           $scope.shareLink = window.location.origin + $scope.sharePath;
           $scope.loading = false;
         });
-      } else {
-        // TODO: animate/flash the "you must log in to submit" text that's
-        // already on the page
       }
     };
 
