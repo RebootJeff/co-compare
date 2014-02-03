@@ -18,9 +18,6 @@ body
   background: #ddd
   font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif
   color: #333
-  font-weight: 200
-  margin: 0
-  padding: 0
 
 a
   @extend .transition
@@ -38,6 +35,29 @@ a:hover
 
 .clear
   clear: both
+
+h1, h2
+  margin: 1.3em
+  font-weight: bold
+
+h3, h4
+  margin: 1em
+
+h1
+  font-size: 3em
+
+h2
+  font-size: 2em
+
+h3
+  font-size: 1.6em
+
+h4
+  font-size: 1.3em
+
+p
+  margin-top: 1em
+  margin-bottom: 1em
 
 nav
   background-color: $color_dark_purple
@@ -85,7 +105,12 @@ button:disabled
   color: $color_dark_grey
   border: 1px solid $color_dark_grey
 
+.alert-btn
+  border: 2px solid white
+  border-radius: 4px
+
 .med-btn
+  margin: 1em
   padding: 0.5em
   font-size: 1.2em
 

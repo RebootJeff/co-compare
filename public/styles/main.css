@@ -13,9 +13,6 @@ body {
   background: #ddd;
   font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #333;
-  font-weight: 200;
-  margin: 0;
-  padding: 0;
 }
 a {
   color: #4a4a6c;
@@ -32,6 +29,31 @@ a:hover {
 }
 .clear {
   clear: both;
+}
+h1,
+h2 {
+  margin: 1.3em;
+  font-weight: bold;
+}
+h3,
+h4 {
+  margin: 1em;
+}
+h1 {
+  font-size: 3em;
+}
+h2 {
+  font-size: 2em;
+}
+h3 {
+  font-size: 1.6em;
+}
+h4 {
+  font-size: 1.3em;
+}
+p {
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 nav {
   background-color: #4a4a6c;
@@ -83,7 +105,12 @@ button:disabled {
   color: #58606e;
   border: 1px solid #58606e;
 }
+.alert-btn {
+  border: 2px solid #fff;
+  border-radius: 4px;
+}
 .med-btn {
+  margin: 1em;
   padding: 0.5em;
   font-size: 1.2em;
 }
