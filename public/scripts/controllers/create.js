@@ -9,8 +9,8 @@ angular.module('CoCompareApp')
     var critIndex = 0;
     var subjIndex = 0;
 
-    // These declarations work with live data-binding because
-    // they deal with arrays/objects, which are mutable.
+    // These declarations work with live data-binding because they deal with
+    // arrays/objects, which are mutable.
     var subjects = $scope.subjects = [{
       name: '',
       index: subjIndex
