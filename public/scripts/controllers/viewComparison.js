@@ -10,7 +10,7 @@ angular.module('CoCompareApp')
       hash = $routeParams.hash,
       user = UserProvider.getUser();
 
-    $scope.loggedIn = (user.id !== -1);
+    $scope.loggedIn = (user.id > 0);
 
     var refresh = $scope.refresh = function(){
       $scope.loading = true;

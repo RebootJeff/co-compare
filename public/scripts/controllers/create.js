@@ -3,7 +3,7 @@ angular.module('CoCompareApp')
     'use strict';
 
     var user = UserProvider.getUser();
-    $scope.loggedIn = (user.id !== -1);
+    $scope.loggedIn = (user.id > 0);
 
     // These indices are used to assign scores to their respective subjects & criteria
     var critIndex = 0;
